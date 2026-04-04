@@ -68,7 +68,7 @@ background-repeat:repeat;background-size:256px 256px}
 .hero-orb-2{width:400px;height:400px;background:rgba(200,149,108,.05);bottom:10%;left:-5%;animation-delay:-12s}
 @keyframes orbFloat{0%,100%{transform:translate(0,0)}33%{transform:translate(40px,-40px)}66%{transform:translate(-30px,30px)}}
 .hero-content{position:relative;z-index:2;text-align:center;max-width:1000px;padding:160px 48px 120px}
-.hero-logo{width:280px;margin:0 auto 32px;filter:drop-shadow(0 0 40px rgba(200,149,108,.3));opacity:0;transform:translateY(30px);animation:heroReveal .8s .3s cubic-bezier(.16,1,.3,1) forwards}
+.hero-logo{width:100%;max-width:1000px;margin:0 auto 32px;filter:drop-shadow(0 0 40px rgba(200,149,108,.3));opacity:0;transform:translateY(30px);animation:heroReveal .8s .3s cubic-bezier(.16,1,.3,1) forwards}
 .hero-tag{display:inline-flex;align-items:center;gap:8px;padding:10px 24px;border-radius:50px;background:rgba(200,149,108,.08);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(200,149,108,.2);font-size:.72rem;text-transform:uppercase;letter-spacing:.2em;color:var(--gold);margin-bottom:36px;opacity:0;transform:translateY(20px);animation:heroReveal .8s .5s cubic-bezier(.16,1,.3,1) forwards}
 .hero-tag::before{content:'';width:7px;height:7px;border-radius:50%;background:var(--gold);animation:blink 2s infinite;flex-shrink:0}
 @keyframes blink{0%,100%{opacity:1;box-shadow:0 0 8px rgba(200,149,108,.6)}50%{opacity:.4;box-shadow:0 0 2px rgba(200,149,108,.2)}}
@@ -332,7 +332,7 @@ background-repeat:repeat;background-size:256px 256px}
 .gal-overlay{padding:20px}
 .gal-overlay h3{font-size:1.2rem}
 .hero h1{font-size:clamp(2.2rem,8vw,3rem)}
-.hero-logo{width:200px}
+.hero-logo{width:90vw}
 .process-num{width:70px;height:70px;font-size:1.6rem}
 }
     </style>
@@ -363,7 +363,7 @@ background-repeat:repeat;background-size:256px 256px}
 <!-- HERO -->
 <section class="hero">
     <div class="hero-bg">
-        <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1600&q=80" alt="Construction et renovation">
+        <img src="hero_image.png" alt="Construction et renovation">
     </div>
     <div class="hero-orb hero-orb-1"></div>
     <div class="hero-orb hero-orb-2"></div>
