@@ -76,16 +76,19 @@
         }
 
         .nav-logo {
-            font-family: var(--font-display);
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: var(--text-primary);
+            display: flex;
+            align-items: center;
             text-decoration: none;
-            letter-spacing: -0.02em;
         }
 
-        .nav-logo span {
-            color: var(--accent);
+        .nav-logo img {
+            height: 48px;
+            width: auto;
+            transition: height 0.4s ease;
+        }
+
+        nav.scrolled .nav-logo img {
+            height: 40px;
         }
 
         .nav-links {
@@ -1008,12 +1011,97 @@
 
             .stat-number { font-size: 2rem; }
         }
+        /* SPLASH INTRO */
+        .splash {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: #0a0a0a;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 99999;
+            opacity: 1;
+            transition: opacity 0.8s ease;
+        }
+
+        .splash.fade-out {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .splash-logo {
+            width: 180px;
+            height: auto;
+            opacity: 0;
+            transform: scale(0.7);
+            animation: splashLogoIn 1.2s 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            filter: drop-shadow(0 0 0px rgba(200, 169, 108, 0));
+        }
+
+        .splash-tagline {
+            font-family: var(--font-display);
+            font-size: 1rem;
+            color: var(--text-muted);
+            font-style: italic;
+            opacity: 0;
+            transform: translateY(10px);
+            animation: splashTagIn 0.8s 1.2s ease forwards;
+            margin-top: 16px;
+            letter-spacing: 0.05em;
+        }
+
+        .splash-line {
+            width: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+            margin-top: 24px;
+            animation: splashLineIn 1s 1s ease forwards;
+        }
+
+        @keyframes splashLogoIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.7);
+                filter: drop-shadow(0 0 0px rgba(200, 169, 108, 0));
+            }
+            60% {
+                opacity: 1;
+                transform: scale(1.03);
+                filter: drop-shadow(0 0 40px rgba(200, 169, 108, 0.5));
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+                filter: drop-shadow(0 0 20px rgba(200, 169, 108, 0.3));
+            }
+        }
+
+        @keyframes splashTagIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes splashLineIn {
+            to {
+                width: 120px;
+            }
+        }
     </style>
 </head>
 <body>
+    <!-- SPLASH INTRO -->
+    <div class="splash" id="splash">
+        <img src="logo_ac_home.png" alt="AC HOME" class="splash-logo">
+        <div class="splash-line"></div>
+        <div class="splash-tagline">Même qualité pour chaque projet</div>
+    </div>
     <!-- NAVIGATION -->
     <nav id="navbar">
-        <a href="#" class="nav-logo">AC <span>HOME</span></a>
+        <a href="#" class="nav-logo"><img src="logo_ac_home.png" alt="AC HOME"></a>
         <ul class="nav-links" id="navLinks">
             <li><a href="#services" onclick="closeMenu()">Services</a></li>
             <li><a href="#about" onclick="closeMenu()">À propos</a></li>
@@ -1451,6 +1539,15 @@
                 }
             });
         });
+
+        // SPLASH INTRO
+        document.body.style.overflow = 'hidden';
+        setTimeout(() => {
+            const splash = document.getElementById('splash');
+            splash.classList.add('fade-out');
+            document.body.style.overflow = '';
+            setTimeout(() => splash.remove(), 800);
+        }, 2800);
     </script>
 </body>
 </html>
